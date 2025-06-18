@@ -1,6 +1,6 @@
 #  gRPC Report Generation Service
 
-It is a lightweight, production-style Go service built for Appversal's machine task. It exposes a gRPC API for report generation, includes a scheduled cron job, and persists reports using PostgreSQL.
+This is a lightweight, production-style Go service built for AppVersal's machine task. It exposes a gRPC API for report generation, includes a scheduled cron job, and persists reports using PostgreSQL (instead of in-memory map).
 
 ---
 
@@ -55,7 +55,7 @@ DB_HOST=localhost
 DB_PORT=5432
 DB_USER=postgres
 DB_PASSWORD=YOUR_PASSWORD
-DB_NAME=grpc_reports_db
+DB_NAME=YOUR_DB_NAME
 
 ##  Run the Service
 
@@ -81,13 +81,13 @@ b. HealthCheck Method
 
     Every 10 seconds, the cron scheduler invokes GenerateReport for:
 
-        user1, user2, user3
+    user1, user2, user3
 
     Reports are persisted in PostgreSQL with timestamps and UUIDs.
 
 ## Dependencies
 
-    Go 1.24+
+    Go 1.24.2
 
     gRPC (google.golang.org/grpc)
 
@@ -108,4 +108,4 @@ See SCALE_DESIGN.md for a detailed system design plan to scale this service for 
 ## Author
 
 Aswin P Raghu
-Machine Task Submission for Appversal
+Machine Task Submission for AppVersal
